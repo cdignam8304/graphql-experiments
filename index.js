@@ -1,6 +1,8 @@
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import schema from './data/schema';
+import resolvers from './data/resolvers';
+
 
 // Define the port
 const PORT = 8080;
@@ -13,22 +15,12 @@ app.get('/', (req, res) => {
   res.send('GraqhQL is amazing!');
 });
 
-// Define a resolver for the query
-const root = {
-  product: () => {
-    return {
-      "id": 12345,
-      "name": "Widget",
-      "description": "A beautiful widget to use in the garden.",
-      "price": 34.99,
-      "soldout": false
-    };
-  },
-};
+// Define the resolvers
+const root = resolvers;
 
 app.use('/graphql', graphqlHTTP({
   schema: schema, // Pass in the schema
-  rootValue: root, // Pass in the resolver
+  rootValue: root, // Pass in the resolvers
   graphiql: true, // Use graphiql
 }));
 
