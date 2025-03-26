@@ -20,10 +20,15 @@
   },
   "homepage": "https://github.com/cdignam8304/graphql-experiments#readme",
   "dependencies": {
+    "casual": "^1.6.2",
     "express": "^4.21.2",
     "express-graphql": "^0.12.0",
     "graphql": "^16.10.0",
-    "nodemon": "^3.1.9"
+    "lodash": "^4.17.21",
+    "mongoose": "^8.13.0",
+    "nodemon": "^3.1.9",
+    "sequelize": "^6.37.6",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
