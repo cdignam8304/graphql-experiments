@@ -26,7 +26,23 @@ const resolvers = {
         } catch (error) {
             throw new Error(error);
         }
-    }
+    },
+    updateProduct: async ({ input }) => {
+        try {
+            const updatedWidget = await Widgets.findOneAndUpdate({ _id: input.id }, input, { new: true });
+            return updatedWidget;
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+    deleteProduct: async ({ id }) => {
+        try {
+            await Widgets.deleteOne({ _id: id });
+            return 'Successfully deleted widget';
+        } catch (error) {
+          throw new Error(error);
+        }
+    },
 };
 
 
